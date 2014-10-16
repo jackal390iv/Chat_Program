@@ -14,10 +14,9 @@ public class Chat {
     private DatagramSocket socket;
     private DatagramPacket packet_Sent;
 
-    public static void main(String[] args) {
-        new Chat();
-    }
-
+    /* public static void main(String[] args) {
+     new Chat();
+     }*/
     public Chat() {
         try {
             socket = new DatagramSocket();
