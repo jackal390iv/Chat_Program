@@ -40,12 +40,19 @@ public class mainUI extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
+        jLabel1.setFont(new java.awt.Font("DejaVu Sans", 0, 18)); // NOI18N
         jLabel1.setText("Name: ");
 
+        jTextField1.setText("Anonymous");
+
+        jTextArea1.setEditable(false);
         jTextArea1.setColumns(20);
         jTextArea1.setRows(5);
+        jTextArea1.setLineWrap(true);
+        jTextArea1.setWrapStyleWord(true);
         jScrollPane1.setViewportView(jTextArea1);
 
+        jLabel2.setFont(new java.awt.Font("DejaVu Sans", 0, 18)); // NOI18N
         jLabel2.setText("Message: ");
 
         jTextArea2.setColumns(20);
@@ -55,6 +62,8 @@ public class mainUI extends javax.swing.JFrame {
                 jTextArea2KeyPressed(evt);
             }
         });
+        jTextArea2.setLineWrap(true);
+        jTextArea2.setWrapStyleWord(true);
         jScrollPane2.setViewportView(jTextArea2);
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -64,15 +73,15 @@ public class mainUI extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 404, Short.MAX_VALUE)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(jLabel1)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jTextField1))
+                    .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 404, Short.MAX_VALUE)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(jLabel2)
                         .addGap(0, 0, Short.MAX_VALUE))
-                    .addComponent(jScrollPane2))
+                    .addComponent(jScrollPane1))
                 .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
@@ -87,7 +96,7 @@ public class mainUI extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel2)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 100, Short.MAX_VALUE)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 93, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -107,7 +116,9 @@ public class mainUI extends javax.swing.JFrame {
 
     private void jTextArea2KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextArea2KeyPressed
         if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
-            System.out.println("hello");
+            evt.consume();
+            jTextArea1.append(jTextField1.getText()+": "+jTextArea2.getText()+"\n");
+            jTextArea2.setText(null);
         }
     }//GEN-LAST:event_jTextArea2KeyPressed
 
