@@ -6,6 +6,7 @@
 package chat.Client;
 
 import java.awt.event.KeyEvent;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -117,7 +118,7 @@ public class mainUI extends javax.swing.JFrame {
     private void jTextArea2KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextArea2KeyPressed
         if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
             evt.consume();
-            jTextArea1.append(jTextField1.getText()+": "+jTextArea2.getText()+"\n");
+            jTextArea1.append(jTextField1.getText() + ": " + jTextArea2.getText() + "\n");
             jTextArea2.setText(null);
         }
     }//GEN-LAST:event_jTextArea2KeyPressed
@@ -125,12 +126,15 @@ public class mainUI extends javax.swing.JFrame {
     /**
      * @param args the command line arguments
      */
-    public static void main(String args[]) {
+    public static void start() {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
          * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
          */
+
+        connect();
+
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
                 if ("Nimbus".equals(info.getName())) {
@@ -155,6 +159,14 @@ public class mainUI extends javax.swing.JFrame {
                 new mainUI().setVisible(true);
             }
         });
+    }
+
+    private static void connect() {
+        try {
+
+        } catch (Exception ex) {
+            JOptionPane.showMessageDialog(null, "Cause: " + ex.getCause() + "\n" + "Message: " + ex.getMessage() + "\n" + "Local Message: " + ex.getLocalizedMessage(), "Error", 0);
+        }
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
