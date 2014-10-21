@@ -23,7 +23,7 @@ public class main {
         chooseType();
 
         if (optionPanel == 0) {
-
+            chat.Server.serverHub server = new chat.Server.serverHub();
         } else if (optionPanel == 1) {
             chat.Client.mainUI client = new chat.Client.mainUI();
             client.start();

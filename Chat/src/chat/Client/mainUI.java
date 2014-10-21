@@ -6,6 +6,7 @@
 package chat.Client;
 
 import java.awt.event.KeyEvent;
+import java.net.InetAddress;
 import javax.swing.JOptionPane;
 
 /**
@@ -162,11 +163,20 @@ public class mainUI extends javax.swing.JFrame {
     }
 
     private static void connect() {
-        try {
-
-        } catch (Exception ex) {
-            JOptionPane.showMessageDialog(null, "Cause: " + ex.getCause() + "\n" + "Message: " + ex.getMessage() + "\n" + "Local Message: " + ex.getLocalizedMessage(), "Error", 0);
-        }
+        boolean connection = false;
+        int exit = 0;
+        do {
+            try {
+                if (exit == 1) {
+                    System.exit(0);
+                } else if (InetAddress.getByName("this").isReachable(5000)) {
+                    connection = true;
+                }
+            } catch (Exception ex) {
+                String[] jButtons = {"Try Again", "Exit"};
+                exit = JOptionPane.showOptionDialog(null, "Cause: " + ex.getCause() + "\n" + "Message: " + ex.getMessage() + "\n" + "Local Message: " + ex.getLocalizedMessage(), "Error", JOptionPane.ERROR_MESSAGE, 0, null, jButtons, jButtons[1]);
+            }
+        } while (connection == false);
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
