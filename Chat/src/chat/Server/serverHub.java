@@ -32,7 +32,9 @@ public class serverHub {
         } catch (Exception ex) {
             JOptionPane.showMessageDialog(null, "Cause: " + ex.getCause() + "\n" + "Message: " + ex.getMessage() + "\n" + "Local Message: " + ex.getLocalizedMessage(), "Error", 0);
             System.exit(0);
-        }        
+        }       
+        new recieveData().start();
+        new sendData().start();
         JOptionPane.showMessageDialog(null, "Host Name: " + hostName + "\n" + "IP-Address: " + ipAdress + "\n" + "Port-Address: " + portAdress, "Server Hub", 1);
     }
 }
